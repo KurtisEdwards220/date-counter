@@ -22,9 +22,14 @@ function Counter() {
           alignItems: 'center',
         }}
       >
-        <button onClick={() => setStep(step > 1 ? step - 1 : 1)}>-</button>
-        <div>Step: {step}</div>
-        <button onClick={() => setStep(step + 1)}>+</button>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <span>Step: {step}</span>
       </div>
       <div
         style={{
@@ -34,7 +39,11 @@ function Counter() {
         }}
       >
         <button onClick={() => setCount(count - step)}>-</button>
-        <div>Count: {count}</div>
+        <input
+          type="number"
+          value={count}
+          onChange={(e) => setCount(Number(e.target.value))}
+        />
         <button onClick={() => setCount(count + step)}>+</button>
       </div>
 
